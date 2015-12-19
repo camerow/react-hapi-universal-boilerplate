@@ -30,7 +30,33 @@ class CopyArea extends Component {
     )
   }
 }
+
 class InputArea extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      phonenumber: "",
+      encodedMessage: ""
+    }
+  }
+  handleChange(e) {
+    console.log(e.target.value);
+  }
+  stringEncode(e) {
+    // console.log("String Encode", e, e.target);
+    const message = e.target.value;
+    let body = encodeURIComponent(message);
+        body = body.replace(/~/g, "%7E");
+        body = body.replace(/!/g, "%21");
+        body = body.replace(/\*/g, "%23");
+        body = body.replace(/\(/g, "%28");
+        body = body.replace(/\)/g, "%29");
+        body = body.replace(/'/g, "%27");
+    this.setState({
+      encodedMessage: body
+    });
+    console.log("Encoded", body);
+  }
   render() {
     return (
       <div className="row align-center">
@@ -44,13 +70,21 @@ class InputArea extends Component {
           <br />
           <br />
 
-          <textarea onkeyup="textAreaAdjust(this)" placeholder="Message" maxLength="160" id="message" type="text" label="input"></textarea>
+          <textarea
+            onChange={(e) => this.stringEncode(e)}
+            placeholder="Message"
+            maxLength="160"
+            id="message"
+            type="text"
+            label="input">
+          </textarea>
 
         </div>
       </div>
     )
   }
 }
+
 class App extends Component {
   render() {
     console.log("APP!");
