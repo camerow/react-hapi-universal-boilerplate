@@ -24,9 +24,9 @@ server.register([inert, vision], (err) => {
     engines: {
       jsx: HapiReactViews
     },
-    // compileOptions: {
-    //   renderMethod: "renderToString"
-    // }, //optional
+    compileOptions: {
+      renderMethod: "renderToString" //optional
+    },
     relativeTo: __dirname,
     path: "views"
   });
@@ -41,14 +41,6 @@ server.register([inert, vision], (err) => {
       }
     }
   });
-
-  // server.route({
-  //   method: 'GET',
-  //   path: '/assets/js/bundle.js',
-  //   handler: {
-  //     file: Path.join(__dirname, './assets/js/bundle.js')
-  //   }
-  // });
 
   server.route({
     method: "GET",
