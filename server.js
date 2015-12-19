@@ -1,21 +1,24 @@
 require('babel-core/register')({});
 
 const Hapi = require('hapi');
+// Hapi Plugins
+const Inert = require("inert");
+const Scooter = require("scooter");
+const Vision = require("vision");
+
 const dateFormat = require('dateformat');
 const format = "dd mmm HH:MM:ss";
-const inert = require("inert");
-const vision = require("vision");
 const HapiReactViews = require('hapi-react-views');
 const Path = require("path");
+const qs = require("qs");
 
 const server = new Hapi.Server();
-
 server.connection({
   host: "localhost",
   port: 8000
 });
 
-server.register([inert, vision], (err) => {
+server.register([Inert, Vision, Scooter], (err) => {
   if (err) {
     return console.error("ERROR:", err, err.stack);
   }
@@ -45,8 +48,32 @@ server.register([inert, vision], (err) => {
   server.route({
     method: "GET",
     path: "/",
-    handler: {
-      view: "index"
+    handler: (req, reply) => {
+      var userAgentData = req.plugins.scooter.toJSON();
+      var ua = userAgentData.os.family;
+      var redirectURL = "sms:";
+      var to = req.query.to || req.query.t;
+      var body = req.query.body || req.query.b;
+
+      if (to) {
+        redirectURL += to;
+        if (body) {
+          if (ua === "iOS") {
+            // Ios redirect ========================================================
+            redirectURL += "&";
+          } else {
+            // Android and others redirect =========================================
+            redirectURL += "?";
+          }
+          redirectURL += qs.stringify({body: body});
+        }
+        reply(ua);
+        // reply.redirect(redirectURL);
+
+      } else {
+        // If no request parameters, serve up the web tool.
+        reply.view("index")
+      }
     }
   });
 
