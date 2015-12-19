@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-
-require("./style/main.css");
+import Octicon from "react-octicon";
 import "../assets/style/foundation.min.css";
+import "../assets/style/main.css";
 
 class CopyArea extends Component {
   render() {
@@ -14,7 +14,7 @@ class CopyArea extends Component {
             onclick="$(this).toClipboard('#result')"
             className="copy-btn float-left"
             data-tooltip="Click to copy to clipboard.">
-            <span className="octicon light octicon-clippy"></span>
+            <Octicon style={{color: "white"}} name="clippy"></Octicon>
           </button>
 
           <div className="link-container">

@@ -59,16 +59,16 @@ server.register([Inert, Vision, Scooter], (err) => {
         redirectURL += to;
         if (body) {
           if (ua === "iOS") {
-            // Ios redirect ========================================================
+            // Ios redirect ===========================
             redirectURL += "&";
           } else {
-            // Android and others redirect =========================================
+            // Android and others redirect ============
             redirectURL += "?";
           }
           redirectURL += qs.stringify({body: body});
         }
-        reply(ua);
-        // reply.redirect(redirectURL);
+        // reply(ua);
+        reply.redirect(redirectURL);
 
       } else {
         // If no request parameters, serve up the web tool.

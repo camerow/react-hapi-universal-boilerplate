@@ -14,6 +14,10 @@ module.exports = {
       {
         test: /\.css$/,
         loader: "style!css"
+      },
+      {
+        test   : /\.(otf|eot|svg|ttf|woff|woff2).*$/,
+        loader : 'url-loader'
       }
     ]
   },
