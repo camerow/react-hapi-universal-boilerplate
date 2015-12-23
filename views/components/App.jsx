@@ -13,6 +13,14 @@ class CopyArea extends Component {
       copied: false
     }
   }
+  toAnchor(link) {
+    // console.log("ANCHOR", "<a href=" + link + ">Text Now</a>");
+    if (link !== "") {
+      this.setState({
+        show: "<a href=" + link + ">Text Now</a>"
+      })
+    }
+  }
   render() {
     const { link } = this.props;
     return (
@@ -29,12 +37,12 @@ class CopyArea extends Component {
           </CopyToClipboard>
 
           <div className="link-container">
-            <code className="center-text">{ link }</code>
+            <code className="center-text">{ this.state.show || link }</code>
           </div>
 
           <p className="center-text format-options">
-            <a className="format-options-item">Tag </a>
-            <a className="format-options-item">URL</a>
+            <a onClick={ () => this.setState({ show: null }) } className="format-options-item">URL </a>
+            <a onClick={ () => this.toAnchor(link) } className="format-options-item">Tag</a>
           </p>
         </div>
       </div>
@@ -80,7 +88,7 @@ class App extends Component {
     this.state = {
       phonenumber: "",
       encodedMessage: "",
-      result: ""
+      link: ""
     }
   }
   getNumber(e) {
@@ -88,14 +96,6 @@ class App extends Component {
     this.setState({
       phonenumber: number
     })
-  }
-  toAnchor() {
-    const { result } = this.state;
-    if (result !== "") {
-      this.setState({
-        tag: "<a href=" + result + ">Text Now</a>"
-      })
-    }
   }
   stringEncode(e) {
     const message = e.target.value;
@@ -110,7 +110,7 @@ class App extends Component {
       encodedMessage: body
     });
   }
-  createSmartSms(phonenumber, encodedMessage) {
+  createSmsLink(phonenumber, encodedMessage) {
     let url = "";
 
     if(phonenumber) {
@@ -119,7 +119,6 @@ class App extends Component {
         url += "&body=" + encodedMessage;
       }
     }
-
     return url;
   }
   render() {
@@ -136,7 +135,7 @@ class App extends Component {
         </div>
 
         <InputArea formattedNumber={ format(this.state.phonenumber) } onNumberChange={this.getNumber.bind(this)} stringEncode={this.stringEncode.bind(this)}/>
-        <CopyArea link={this.createSmartSms(this.state.phonenumber, this.state.encodedMessage)}/>
+        <CopyArea link={this.createSmsLink(this.state.phonenumber, this.state.encodedMessage)}/>
 
       </div>
     )
