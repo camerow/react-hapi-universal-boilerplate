@@ -4,9 +4,10 @@
   "description": "React version of the sms rederict micro-service.",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js",
+    "start": "nodemon server.js",
     "build": "webpack -p --progress",
-    "dev": "webpack --progress --color --watch & nodemon"
+    "dev": "webpack --progress --color --watch & nodemon",
+    "deploy": "NODE_ENV=production webpack -p --config webpack.production.config.js"
   },
   "author": "Will Cameron",
   "license": "ISC",
