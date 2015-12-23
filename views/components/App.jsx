@@ -84,8 +84,9 @@ class App extends Component {
     }
   }
   getNumber(e) {
+    let number = e.target.value.replace(/[^0-9]/g, '').substring(0, 10);
     this.setState({
-      phonenumber: e.target.value
+      phonenumber: number
     })
   }
   toAnchor() {
