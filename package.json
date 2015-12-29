@@ -4,7 +4,7 @@
   "description": "React version of the sms rederict micro-service.",
   "main": "server.js",
   "scripts": {
-    "start": "nodemon server.js",
+    "start": "nodemon server/server.js",
     "build": "webpack -p --progress",
     "dev": "webpack --progress --color --watch & nodemon",
     "deploy": "NODE_ENV=production webpack -p --config webpack.production.config.js"
@@ -23,12 +23,14 @@
     "google-libphonenumber": "^1.0.10",
     "hapi": "^11.1.2",
     "hapi-react-views": "^5.0.1",
+    "hapi-rethinkdb": "^2.0.1",
     "inert": "^3.2.0",
     "qs": "^6.0.1",
     "react": "^0.14.3",
     "react-copy-to-clipboard": "^3.0.4",
     "react-dom": "^0.14.3",
     "react-octicon": "^2.0.0",
+    "rethinkdb": "^2.2.1",
     "scooter": "^2.0.1",
     "style-loader": "^0.13.0",
     "url-loader": "^0.5.7",

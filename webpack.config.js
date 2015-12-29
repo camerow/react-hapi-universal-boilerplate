@@ -16,7 +16,7 @@ module.exports = {
       { test: /\.jsx$/, exclude: /node_modules/, loaders: ["babel"] },
       { test: /\.js$/, exclude: /node_modules/, loaders: ["babel"] },
       { test: /\.css$/, loader: "style!css" },
-      { test   : /\.(otf|eot|svg|ttf|woff|woff2).*$/, loader : 'url-loader' }
+      { test: /\.(otf|eot|svg|ttf|woff|woff2).*$/, loader : 'url-loader' }
     ]
   },
 };
