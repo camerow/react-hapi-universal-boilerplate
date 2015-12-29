@@ -1,0 +1,21 @@
+2015-12-29T11:19:54.208879000 0.271977s notice: Recursively removing directory /Users/will/zipwhip/smsredirect-universal/rethinkdb_data/tmp
+2015-12-29T11:19:54.210933000 0.274036s notice: Initializing directory /Users/will/zipwhip/smsredirect-universal/rethinkdb_data
+2015-12-29T11:19:54.211064000 0.274161s info: Creating a default database for your convenience. (This is because you ran 'rethinkdb' without 'create', 'serve', or '--join', and the directory '/Users/will/zipwhip/smsredirect-universal/rethinkdb_data' did not already exist or is empty.)
+2015-12-29T11:19:54.211106000 0.274203s notice: Running rethinkdb 2.2.2 (CLANG 7.0.2 (clang-700.1.81))...
+2015-12-29T11:19:54.215736000 0.278834s notice: Running on Darwin 15.2.0 x86_64
+2015-12-29T11:19:54.215809000 0.278906s notice: Loading data from directory /Users/will/zipwhip/smsredirect-universal/rethinkdb_data
+2015-12-29T11:19:54.331219000 0.394316s info: Automatically using cache size of 4556 MB
+2015-12-29T11:19:54.332131000 0.395227s notice: Listening for intracluster connections on port 29015
+2015-12-29T11:19:54.333346000 0.396443s notice: Listening for client driver connections on port 28015
+2015-12-29T11:19:54.333537000 0.396634s notice: Listening for administrative HTTP connections on port 8080
+2015-12-29T11:19:54.333543000 0.396639s notice: Listening on addresses: 127.0.0.1, ::1
+2015-12-29T11:19:54.333544000 0.396640s notice: To fully expose RethinkDB on the network, bind to all addresses by running rethinkdb with the `--bind all` command line option.
+2015-12-29T11:19:54.333546000 0.396643s notice: Server ready, "Camerons_MacBook_Pro_local_3f0" 7738eae1-6df2-4fa6-b234-284bb16bfbad
+2015-12-29T11:23:38.093232000 224.151296s info: Table 56328482-b63e-4a60-9ef8-50618697195d: Added replica on this server.
+2015-12-29T11:23:39.986124000 226.044145s info: Table 56328482-b63e-4a60-9ef8-50618697195d: Starting a new Raft election for term 1.
+2015-12-29T11:23:40.007912000 226.065933s info: Table 56328482-b63e-4a60-9ef8-50618697195d: This server is Raft leader for term 1. Latest log index is 0.
+2015-12-29T12:35:11.580207000 4182.053206s notice: Removing file /Users/will/zipwhip/smsredirect-universal/rethinkdb_data/56328482-b63e-4a60-9ef8-50618697195d
+2015-12-29T12:35:11.580247000 4182.053245s info: Table 56328482-b63e-4a60-9ef8-50618697195d: Deleted the table.
+2015-12-29T12:35:15.896088000 4186.369003s info: Table 0a5483e1-cdac-4ff9-9214-3fe91e6706b5: Added replica on this server.
+2015-12-29T12:35:17.414167000 4187.887039s info: Table 0a5483e1-cdac-4ff9-9214-3fe91e6706b5: Starting a new Raft election for term 1.
+2015-12-29T12:35:17.440367000 4187.913239s info: Table 0a5483e1-cdac-4ff9-9214-3fe91e6706b5: This server is Raft leader for term 1. Latest log index is 0.
